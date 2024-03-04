@@ -63,7 +63,7 @@
                                 <td class="border col-md-1">{{ $product->is_published ? 'Yes' : 'No' }}</td>
                                 <td class="border col-md-2">
                                     <a href="{{ route('products.show', $product) }}" class="btn btn-sm btn-info">Show</a>
-                                    <a href="{{ route('products.edit', $product) }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="{{ route('products.edit', $product) }}" class="btn btn-sm btn-primary">Edit</a>
                                     <form action="{{ route('products.destroy', $product) }}" method="POST" style="display: inline;">
                                         @csrf
                                         @method('DELETE')

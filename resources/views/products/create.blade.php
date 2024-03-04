@@ -40,7 +40,7 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="price" class="form-label fw-bolder">Price:</label>
+                    <label for="price" class="form-label fw-bolder">Price (RM):</label>
                     <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price" step="0.0001" style="-webkit-appearance: none; -moz-appearance: textfield;" value="{{ old('price') }}">
                     @error('price')
                         <div class="invalid-feedback">{{ $message }}</div>
