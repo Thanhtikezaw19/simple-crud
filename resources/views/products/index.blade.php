@@ -41,42 +41,44 @@
             </div>
         </div>
         <div class="product-table mt-1">
-        @if (count($products) > 0)
-            <table class="table">
-                <thead class="border">
-                    <tr class="border">
-                        <th class="border">Name</th>
-                        <th class="border">Price (RM)</th>
-                        <th class="border">Detail</th>
-                        <th class="border">Publish</th>
-                        <th class="border">Actions</th>
-                    </tr>
-                </thead>
-                <tbody class="border">
-                    @foreach ($products as $product)
-                        <tr>
-                            <td class="border col-md-3">{{ $product->name }}</td>
-                            <td class="border col-md-2">{{ $product->price }}</td>
-                            <td class="border col-md-4">{{ $product->details }}</td>
-                            <td class="border col-md-1">{{ $product->is_published ? 'Yes' : 'No' }}</td>
-                            <td class="border col-md-2">
-                                <a href="{{ route('products.show', $product) }}" class="btn btn-sm btn-info">Show</a>
-                                <a href="{{ route('products.edit', $product) }}" class="btn btn-sm btn-warning">Edit</a>
-                                <form action="{{ route('products.destroy', $product) }}" method="POST" style="display: inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                                </form>
-                            </td>
+            @if (count($products) > 0)
+                <table class="table">
+                    <thead class="border">
+                        <tr class="border">
+                            <th class="border">Id</id>
+                            <th class="border">Name</th>
+                            <th class="border">Price (RM)</th>
+                            <th class="border">Detail</th>
+                            <th class="border">Publish</th>
+                            <th class="border">Actions</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody class="border">
+                        @foreach ($products as $product)
+                            <tr>
+                                <td class="border col-md-1">{{ $product->id }}</td>
+                                <td class="border col-md-2">{{ $product->name }}</td>
+                                <td class="border col-md-2">{{ $product->price }}</td>
+                                <td class="border col-md-4">{{ $product->details }}</td>
+                                <td class="border col-md-1">{{ $product->is_published ? 'Yes' : 'No' }}</td>
+                                <td class="border col-md-2">
+                                    <a href="{{ route('products.show', $product) }}" class="btn btn-sm btn-info">Show</a>
+                                    <a href="{{ route('products.edit', $product) }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <form action="{{ route('products.destroy', $product) }}" method="POST" style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
 
-            {{ $products->links() }}
-        @else
-            <p class="text-center">No products found.</p>
-        @endif
+                {{ $products->links() }}
+            @else
+                <p class="text-center">No products found.</p>
+            @endif
         </div>
     </div>
 </body>

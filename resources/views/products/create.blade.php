@@ -47,14 +47,14 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="details" class="form-label">Detail:</label>
+                    <label for="details" class="form-label fw-bolder">Detail:</label>
                     <textarea class="form-control @error('details') is-invalid @enderror" id="details" name="details">{{ old('details') }}</textarea>
                     @error('details')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Publish:</label>
+                    <label class="form-label fw-bolder">Publish:</label>
                     <div class="form-check form-check">
                         <input class="form-check-input" type="radio" name="is_published" id="publish_yes" value="1" {{ old('is_published') == '1' ? 'checked' : '' }}>
                         <label class="form-check-label" for="publish_yes">Yes</label>
